@@ -78,16 +78,28 @@ class __TwigTemplate_c56bfb5535de570b619612eafce0d994f7731339db6330a7225b93b3aed
   <div class=\"collapse navbar-collapse\" id=\"navbarCollapse\">
     <ul class=\"navbar-nav mr-auto\">
       <li class=\"nav-item active\">
-        <a class=\"nav-link\" href=\"#\">Home <span class=\"sr-only\">(current)</span></a>
+        <a class=\"nav-link\" href=\"";
+        // line 43
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("default");
+        echo "\">Home <span class=\"sr-only\">(current)</span></a>
       </li>
       <li class=\"nav-item\">
-        <a class=\"nav-link\" href=\"#\">Times</a>
+        <a class=\"nav-link\" href=\"";
+        // line 46
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("times");
+        echo "\">Times</a>
       </li>
       <li class=\"nav-item\">
-        <a class=\"nav-link\" href=\"#\">Campeonatos</a>
+        <a class=\"nav-link\" href=\"";
+        // line 49
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("campeonatos");
+        echo "\">Campeonatos</a>
       </li>
       <li class=\"nav-item\">
-        <a class=\"nav-link\" href=\"#\">Partidas</a>
+        <a class=\"nav-link\" href=\"";
+        // line 52
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("partidas");
+        echo "\">Partidas</a>
       </li>
       <li class=\"nav-item\">
         <a class=\"nav-link\" href=\"#\">Organizações</a>
@@ -202,9 +214,14 @@ class __TwigTemplate_c56bfb5535de570b619612eafce0d994f7731339db6330a7225b93b3aed
         return "base.html.twig";
     }
 
+    public function isTraitable()
+    {
+        return false;
+    }
+
     public function getDebugInfo()
     {
-        return array (  184 => 67,  173 => 64,  164 => 63,  147 => 32,  129 => 9,  111 => 68,  109 => 67,  105 => 65,  103 => 63,  71 => 33,  69 => 32,  43 => 9,  33 => 1,);
+        return array (  196 => 67,  185 => 64,  176 => 63,  159 => 32,  141 => 9,  123 => 68,  121 => 67,  117 => 65,  115 => 63,  101 => 52,  95 => 49,  89 => 46,  83 => 43,  71 => 33,  69 => 32,  43 => 9,  33 => 1,);
     }
 
     public function getSourceContext()
@@ -251,16 +268,16 @@ class __TwigTemplate_c56bfb5535de570b619612eafce0d994f7731339db6330a7225b93b3aed
   <div class=\"collapse navbar-collapse\" id=\"navbarCollapse\">
     <ul class=\"navbar-nav mr-auto\">
       <li class=\"nav-item active\">
-        <a class=\"nav-link\" href=\"#\">Home <span class=\"sr-only\">(current)</span></a>
+        <a class=\"nav-link\" href=\"{{ path('default') }}\">Home <span class=\"sr-only\">(current)</span></a>
       </li>
       <li class=\"nav-item\">
-        <a class=\"nav-link\" href=\"#\">Times</a>
+        <a class=\"nav-link\" href=\"{{ path('times') }}\">Times</a>
       </li>
       <li class=\"nav-item\">
-        <a class=\"nav-link\" href=\"#\">Campeonatos</a>
+        <a class=\"nav-link\" href=\"{{ path('campeonatos') }}\">Campeonatos</a>
       </li>
       <li class=\"nav-item\">
-        <a class=\"nav-link\" href=\"#\">Partidas</a>
+        <a class=\"nav-link\" href=\"{{ path('partidas') }}\">Partidas</a>
       </li>
       <li class=\"nav-item\">
         <a class=\"nav-link\" href=\"#\">Organizações</a>

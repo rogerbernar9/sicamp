@@ -378,11 +378,35 @@
     <service id="EasyCorp\EasyLog\EasyLogHandler" class="EasyCorp\EasyLog\EasyLogHandler" public="false">
       <argument>/var/www/var/log/dev.log</argument>
     </service>
+    <service id="App\Controller\CampeonatosController" class="App\Controller\CampeonatosController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.KTVqfp6.App\Controller\CampeonatosController"/>
+      </call>
+    </service>
     <service id="App\Controller\DefaultController" class="App\Controller\DefaultController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
       <call method="setContainer">
         <argument type="service" id=".service_locator.KTVqfp6.App\Controller\DefaultController"/>
+      </call>
+    </service>
+    <service id="App\Controller\PartidasController" class="App\Controller\PartidasController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.KTVqfp6.App\Controller\PartidasController"/>
+      </call>
+    </service>
+    <service id="App\Controller\TimesController" class="App\Controller\TimesController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.KTVqfp6.App\Controller\TimesController"/>
       </call>
     </service>
     <service id="App\Repository\CampeonatoRepository" class="App\Repository\CampeonatoRepository" autowire="true" autoconfigure="true">
@@ -4220,9 +4244,18 @@
         <argument>server:log</argument>
       </call>
     </service>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\CampeonatosController" class="App\Controller\CampeonatosController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\CampeonatosController" class="App\Controller\CampeonatosController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\CampeonatosController" class="App\Controller\CampeonatosController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\DefaultController" class="App\Controller\DefaultController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\DefaultController" class="App\Controller\DefaultController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\DefaultController" class="App\Controller\DefaultController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\PartidasController" class="App\Controller\PartidasController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\PartidasController" class="App\Controller\PartidasController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\PartidasController" class="App\Controller\PartidasController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\TimesController" class="App\Controller\TimesController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\TimesController" class="App\Controller\TimesController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\TimesController" class="App\Controller\TimesController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\CampeonatoRepository" class="App\Repository\CampeonatoRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\CampeonatoRepository" class="App\Repository\CampeonatoRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\OrganizacaoRepository" class="App\Repository\OrganizacaoRepository" autowire="true" abstract="true"/>
@@ -4384,9 +4417,18 @@
         <argument>make:migration</argument>
       </call>
     </service>
-    <service id=".service_locator.9_yeNH1" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.eANm2nL" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
-      <argument type="collection"/>
+      <argument type="collection">
+        <argument key="time" type="service" id=".errored..service_locator.eANm2nL.App\Entity\Time"/>
+      </argument>
+    </service>
+    <service id=".service_locator.5N2Z6WL" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="App\Controller\PartidasController::partidasPorTimes" type="service" id=".service_locator.eANm2nL"/>
+        <argument key="App\Controller\PartidasController:partidasPorTimes" type="service" id=".service_locator.eANm2nL"/>
+      </argument>
     </service>
     <service id=".service_locator.yQVjGlt" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
@@ -4664,7 +4706,7 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver" public="false">
-      <argument type="service" id=".service_locator.9_yeNH1"/>
+      <argument type="service" id=".service_locator.5N2Z6WL"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver" public="false"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver" public="false"/>
@@ -4695,9 +4737,27 @@
         <argument key="twig" type="service" id="twig" on-invalid="ignore"/>
       </argument>
     </service>
+    <service id=".service_locator.KTVqfp6.App\Controller\CampeonatosController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator_context" id="App\Controller\CampeonatosController"/>
+      <argument>App\Controller\CampeonatosController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.KTVqfp6" method="withContext"/>
+    </service>
     <service id=".service_locator.KTVqfp6.App\Controller\DefaultController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator_context" id="App\Controller\DefaultController"/>
       <argument>App\Controller\DefaultController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.KTVqfp6" method="withContext"/>
+    </service>
+    <service id=".service_locator.KTVqfp6.App\Controller\PartidasController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator_context" id="App\Controller\PartidasController"/>
+      <argument>App\Controller\PartidasController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.KTVqfp6" method="withContext"/>
+    </service>
+    <service id=".service_locator.KTVqfp6.App\Controller\TimesController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator_context" id="App\Controller\TimesController"/>
+      <argument>App\Controller\TimesController</argument>
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.KTVqfp6" method="withContext"/>
     </service>
@@ -4755,6 +4815,7 @@
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.lSIKWsr" method="withContext"/>
     </service>
+    <service id=".errored..service_locator.eANm2nL.App\Entity\Time" class="App\Entity\Time"/>
     <service id=".service_locator.HKoUR8q" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -5092,7 +5153,7 @@
     <service id="Twig\Environment" alias="twig" public="false"/>
     <service id="logger" alias="monolog.logger"/>
     <service id="Psr\Log\LoggerInterface" alias="monolog.logger" public="false"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.9_yeNH1"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.5N2Z6WL"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem" public="false"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="validator" alias="debug.validator" public="true"/>
