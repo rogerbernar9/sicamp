@@ -18,6 +18,14 @@ class CampeonatoRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Campeonato::class);
     }
+    
+    //
+    public function getAllCampeonatos()
+    {
+        return $this->createQueryBuilder("c")
+            ->getQuery()->getResult();
+        
+    }
 
     // /**
     //  * @return Campeonato[] Returns an array of Campeonato objects

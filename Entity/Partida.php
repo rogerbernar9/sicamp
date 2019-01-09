@@ -46,6 +46,29 @@ class Partida
     private $data_partida;
 
     
+    /**
+     *
+     * @var Campeonato
+     * @ORM\ManyToOne(targetEntity="App\Entity\Campeonato")
+     */    
+    private $campeonato;
+    
+    
+    /**
+     *
+     * @var Time
+     * @ORM\ManyToOne(targetEntity="App\Entity\Time", inversedBy="partidas_casa")
+     */  
+    private $time_casa;
+    
+    /**
+     *
+     * @var Time
+     * @ORM\ManyToOne(targetEntity="App\Entity\Time", inversedBy="partidas_visitante")
+     */
+    private $time_visitante;
+    
+    
     public function getId()
     {
         return $this->id;
@@ -114,5 +137,53 @@ class Partida
     {
         $this->data_partida = $data_partida;
     }
+    /**
+     * @return \App\Entity\Campeonato
+     */
+    public function getCampeonato()
+    {
+        return $this->campeonato;
+    }
+
+    /**
+     * @param \App\Entity\Campeonato $campeonato
+     */
+    public function setCampeonato($campeonato)
+    {
+        $this->campeonato = $campeonato;
+    }
+    /**
+     * @return \App\Entity\Time
+     */
+    public function getTimeCasa()
+    {
+        return $this->time_casa;
+    }
+
+    /**
+     * @return \App\Entity\Time
+     */
+    public function getTimeVisitante()
+    {
+        return $this->time_visitante;
+    }
+
+    /**
+     * @param \App\Entity\Time $time_casa
+     */
+    public function setTimeCasa($time_casa)
+    {
+        $this->time_casa = $time_casa;
+    }
+
+    /**
+     * @param \App\Entity\Time $time_visitante
+     */
+    public function setTimeVisitante($time_visitante)
+    {
+        $this->time_visitante = $time_visitante;
+    }
+
+
 
 }
