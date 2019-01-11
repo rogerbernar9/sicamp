@@ -21,6 +21,7 @@ class srcApp_KernelDevDebugContainerUrlGenerator extends Symfony\Component\Routi
         if (null === self::$declaredRoutes) {
             self::$declaredRoutes = array(
         'campeonatos' => array(array(), array('_controller' => 'App\\Controller\\CampeonatosController::index'), array(), array(array('text', '/campeonatos')), array(), array()),
+        'classificacao' => array(array('id'), array('_controller' => 'App\\Controller\\CampeonatosController::classificacao'), array(), array(array('variable', '/', '[^/]++', 'id', true), array('text', '/campeonato/classificacao')), array(), array()),
         'default' => array(array(), array('_controller' => 'App\\Controller\\DefaultController::index'), array(), array(array('text', '/')), array(), array()),
         'partidas' => array(array(), array('_controller' => 'App\\Controller\\PartidasController::index'), array(), array(array('text', '/partidas')), array(), array()),
         'listar_partidas' => array(array('id'), array('_controller' => 'App\\Controller\\PartidasController::partidasPorTimes'), array(), array(array('variable', '/', '[^/]++', 'id', true), array('text', '/partidas/listar-por-time')), array(), array()),

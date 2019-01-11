@@ -27,33 +27,35 @@ class srcApp_KernelDevDebugContainerUrlMatcher extends Symfony\Bundle\FrameworkB
         );
         $this->regexpList = array(
             0 => '{^(?'
-                    .'|/partidas/listar\\-por\\-time/([^/]++)(*:43)'
+                    .'|/campeonato/classificacao/([^/]++)(*:41)'
+                    .'|/partidas/listar\\-por\\-time/([^/]++)(*:84)'
                     .'|/_(?'
-                        .'|error/(\\d+)(?:\\.([^/]++))?(*:81)'
-                        .'|wdt/([^/]++)(*:100)'
+                        .'|error/(\\d+)(?:\\.([^/]++))?(*:122)'
+                        .'|wdt/([^/]++)(*:142)'
                         .'|profiler/([^/]++)(?'
                             .'|/(?'
-                                .'|search/results(*:146)'
-                                .'|router(*:160)'
+                                .'|search/results(*:188)'
+                                .'|router(*:202)'
                                 .'|exception(?'
-                                    .'|(*:180)'
-                                    .'|\\.css(*:193)'
+                                    .'|(*:222)'
+                                    .'|\\.css(*:235)'
                                 .')'
                             .')'
-                            .'|(*:203)'
+                            .'|(*:245)'
                         .')'
                     .')'
                 .')(?:/?)$}sDu',
         );
         $this->dynamicRoutes = array(
-            43 => array(array(array('_route' => 'listar_partidas', '_controller' => 'App\\Controller\\PartidasController::partidasPorTimes'), array('id'), null, null, false, null)),
-            81 => array(array(array('_route' => '_twig_error_test', '_controller' => 'twig.controller.preview_error::previewErrorPageAction', '_format' => 'html'), array('code', '_format'), null, null, false, null)),
-            100 => array(array(array('_route' => '_wdt', '_controller' => 'web_profiler.controller.profiler::toolbarAction'), array('token'), null, null, false, null)),
-            146 => array(array(array('_route' => '_profiler_search_results', '_controller' => 'web_profiler.controller.profiler::searchResultsAction'), array('token'), null, null, false, null)),
-            160 => array(array(array('_route' => '_profiler_router', '_controller' => 'web_profiler.controller.router::panelAction'), array('token'), null, null, false, null)),
-            180 => array(array(array('_route' => '_profiler_exception', '_controller' => 'web_profiler.controller.exception::showAction'), array('token'), null, null, false, null)),
-            193 => array(array(array('_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception::cssAction'), array('token'), null, null, false, null)),
-            203 => array(array(array('_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'), array('token'), null, null, false, null)),
+            41 => array(array(array('_route' => 'classificacao', '_controller' => 'App\\Controller\\CampeonatosController::classificacao'), array('id'), null, null, false, null)),
+            84 => array(array(array('_route' => 'listar_partidas', '_controller' => 'App\\Controller\\PartidasController::partidasPorTimes'), array('id'), null, null, false, null)),
+            122 => array(array(array('_route' => '_twig_error_test', '_controller' => 'twig.controller.preview_error::previewErrorPageAction', '_format' => 'html'), array('code', '_format'), null, null, false, null)),
+            142 => array(array(array('_route' => '_wdt', '_controller' => 'web_profiler.controller.profiler::toolbarAction'), array('token'), null, null, false, null)),
+            188 => array(array(array('_route' => '_profiler_search_results', '_controller' => 'web_profiler.controller.profiler::searchResultsAction'), array('token'), null, null, false, null)),
+            202 => array(array(array('_route' => '_profiler_router', '_controller' => 'web_profiler.controller.router::panelAction'), array('token'), null, null, false, null)),
+            222 => array(array(array('_route' => '_profiler_exception', '_controller' => 'web_profiler.controller.exception::showAction'), array('token'), null, null, false, null)),
+            235 => array(array(array('_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception::cssAction'), array('token'), null, null, false, null)),
+            245 => array(array(array('_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'), array('token'), null, null, false, null)),
         );
     }
 }

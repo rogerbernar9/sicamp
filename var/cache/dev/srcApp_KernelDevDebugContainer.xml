@@ -4417,16 +4417,24 @@
         <argument>make:migration</argument>
       </call>
     </service>
+    <service id=".service_locator.tsbo4UT" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="campeonato" type="service" id=".errored..service_locator.tsbo4UT.App\Entity\Campeonato"/>
+      </argument>
+    </service>
     <service id=".service_locator.eANm2nL" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="time" type="service" id=".errored..service_locator.eANm2nL.App\Entity\Time"/>
       </argument>
     </service>
-    <service id=".service_locator.5N2Z6WL" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.1LqbtVO" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
+        <argument key="App\Controller\CampeonatosController::classificacao" type="service" id=".service_locator.tsbo4UT"/>
         <argument key="App\Controller\PartidasController::partidasPorTimes" type="service" id=".service_locator.eANm2nL"/>
+        <argument key="App\Controller\CampeonatosController:classificacao" type="service" id=".service_locator.tsbo4UT"/>
         <argument key="App\Controller\PartidasController:partidasPorTimes" type="service" id=".service_locator.eANm2nL"/>
       </argument>
     </service>
@@ -4706,7 +4714,7 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver" public="false">
-      <argument type="service" id=".service_locator.5N2Z6WL"/>
+      <argument type="service" id=".service_locator.1LqbtVO"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver" public="false"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver" public="false"/>
@@ -4815,6 +4823,7 @@
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.lSIKWsr" method="withContext"/>
     </service>
+    <service id=".errored..service_locator.tsbo4UT.App\Entity\Campeonato" class="App\Entity\Campeonato"/>
     <service id=".errored..service_locator.eANm2nL.App\Entity\Time" class="App\Entity\Time"/>
     <service id=".service_locator.HKoUR8q" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
@@ -5153,7 +5162,7 @@
     <service id="Twig\Environment" alias="twig" public="false"/>
     <service id="logger" alias="monolog.logger"/>
     <service id="Psr\Log\LoggerInterface" alias="monolog.logger" public="false"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.5N2Z6WL"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.1LqbtVO"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem" public="false"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="validator" alias="debug.validator" public="true"/>

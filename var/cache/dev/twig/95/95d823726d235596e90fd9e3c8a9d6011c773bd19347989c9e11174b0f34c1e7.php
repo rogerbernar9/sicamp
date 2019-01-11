@@ -100,7 +100,10 @@ class __TwigTemplate_300af5d0304685627d9d301bf254b680fa97a08dc130b0ff6fe680f2a13
             // line 21
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["campeonato"], "organizacao", array()), "nome", array()), "html", null, true);
             echo "</td>
-\t\t\t<td><a href=\"\" class=\"btn btn-primary\">Ver classificação</a></td>
+\t\t\t<td><a href=\"";
+            // line 22
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("classificacao", array("id" => twig_get_attribute($this->env, $this->source, $context["campeonato"], "id", array()))), "html", null, true);
+            echo "\" class=\"btn btn-primary\">Ver classificação</a></td>
 \t\t</tr>
 \t\t";
             $context['_iterated'] = true;
@@ -140,7 +143,7 @@ class __TwigTemplate_300af5d0304685627d9d301bf254b680fa97a08dc130b0ff6fe680f2a13
 
     public function getDebugInfo()
     {
-        return array (  119 => 29,  110 => 25,  101 => 21,  97 => 20,  93 => 19,  90 => 18,  85 => 17,  72 => 6,  63 => 5,  45 => 3,  15 => 1,);
+        return array (  122 => 29,  113 => 25,  105 => 22,  101 => 21,  97 => 20,  93 => 19,  90 => 18,  85 => 17,  72 => 6,  63 => 5,  45 => 3,  15 => 1,);
     }
 
     public function getSourceContext()
@@ -166,7 +169,7 @@ class __TwigTemplate_300af5d0304685627d9d301bf254b680fa97a08dc130b0ff6fe680f2a13
 \t\t\t<td>{{ campeonato.id }}</td>
 \t\t\t<td>{{ campeonato.nome }}</td>
 \t\t\t<td>{{ campeonato.organizacao.nome }}</td>
-\t\t\t<td><a href=\"\" class=\"btn btn-primary\">Ver classificação</a></td>
+\t\t\t<td><a href=\"{{ path('classificacao', {\"id\":campeonato.id}) }}\" class=\"btn btn-primary\">Ver classificação</a></td>
 \t\t</tr>
 \t\t{% else %}
 \t\t<tr>

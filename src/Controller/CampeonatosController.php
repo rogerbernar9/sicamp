@@ -31,4 +31,18 @@ class CampeonatosController extends AbstractController
             'campeonatos' => $campeonatos
         ];
     }
+    
+    /**
+     * @Route("/campeonato/classificacao/{id}", name="classificacao")
+     * @Template("campeonatos/classificacao.html.twig")
+     */
+    public function classificacao(Campeonato $campeonato)
+    {
+        $classificacao = $this->em->getRepository(Campeonato::class)->getClassificacao($campeonato);
+        return [
+            'classificacao' => $classificacao,
+            'campeonato' => $campeonato
+        ];
+    }
+    
 }

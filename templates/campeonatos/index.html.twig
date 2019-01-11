@@ -19,7 +19,7 @@
 			<td>{{ campeonato.id }}</td>
 			<td>{{ campeonato.nome }}</td>
 			<td>{{ campeonato.organizacao.nome }}</td>
-			<td><a href="" class="btn btn-primary">Ver classificação</a></td>
+			<td><a href="{{ path('classificacao', {"id":campeonato.id}) }}" class="btn btn-primary">Ver classificação</a></td>
 		</tr>
 		{% else %}
 		<tr>
